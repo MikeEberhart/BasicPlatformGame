@@ -21,21 +21,30 @@ public class PlatformController : MonoBehaviour
 
     private void movePlatform()
     {
-        // this need to be multiplied by time.deltatime so that we are moving the object
+        // this need to be multiplied by Time.deltatime so that we are moving the object
         // based off time and not framerate. We do not do this when moving the player
+        // because velocity is already in a time metric
         if(horizontalMovement)
         {
-            transform.Translate(Vector2.left * movementSpeed * Time.deltaTime);
+            if(moveLeft)
+            {
+                transform.Translate(Vector2.left * movementSpeed * Time.deltaTime);
+            }
+            else
+            {
+                transform.Translate(Vector2.right * movementSpeed * Time.deltaTime);
+            }
+            
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("WallMovementLeftBound"))
+        if(collision.gameObject.CompareTag("WallMoveLeftBound"))
         {
             moveLeft = false;
         }
-        else if(collision.gameObject.CompareTag("WallMovementRightBound"))
+        else if(collision.gameObject.CompareTag("WallMoveRightBound"))
         {
             moveLeft= true;
         }

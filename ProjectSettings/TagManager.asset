@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - PinkCollectable
   - DoubleJump
+  - WallMoveRightBound
+  - WallMoveLeftBound
   layers:
   - Default
   - TransparentFX
