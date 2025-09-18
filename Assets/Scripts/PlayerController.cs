@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     //because its public we have access to it in the unity editor
     public float horizontalMoveSpeed;
     public float jumpForce;
+
+    public GameObject doubleJumpHatLocation;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -84,8 +86,16 @@ public class PlayerController : MonoBehaviour
         {
             //string fromPinkCollectable = collision.gameObject.GetComponent<PinkTriangleCollectable>().getTestString();
             //Debug.Log(fromPinkCollectable);
+            GameObject hat = collision.gameObject;
+            equipDoubleJumpHat(hat);
             maxNumJumps = 2;
         }
+    }
+
+    private void equipDoubleJumpHat(GameObject hat)
+    {
+        hat.transform.position = doubleJumpHatLocation.transform.position;
+        hat.gameObject.transform.SetParent(this.gameObject.transform);
     }
     
 }
