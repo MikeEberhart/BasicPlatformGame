@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: f495aff793e71fd408d2dfef6d81d33b
+guid: 9553de8355a91de42b4481f52e250943
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7482667652216324306
-    second: Square
+      213: 2747690628134850419
+    second: Hexagon Flat Top
   externalObjects: {}
-  serializedVersion: 13
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -28,7 +28,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMipmapLimit: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -52,7 +52,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 256
-  spriteBorder: {x: 4, y: 4, z: 4, w: 4}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -68,9 +68,8 @@ TextureImporter:
   ignorePngGamma: 0
   applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
   platformSettings:
-  - serializedVersion: 4
+  - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -80,10 +79,9 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -93,11 +91,10 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
+  - serializedVersion: 3
+    buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -106,10 +103,9 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
+  - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -119,60 +115,62 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Triangle
+      name: Hexagon Flat Top
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 15
         width: 256
-        height: 223
-      alignment: 9
-      pivot: {x: 0.5, y: 0.28866667}
+        height: 226
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
       outline:
-      - - {x: 0, y: 93.70251}
-        - {x: -128, y: -128}
-        - {x: 128, y: -128}
+      - - {x: -65, y: 113}
+        - {x: -128, y: 4}
+        - {x: -128, y: -4}
+        - {x: -65, y: -113}
+        - {x: 65, y: -113}
+        - {x: 128, y: -4}
+        - {x: 128, y: 4}
+        - {x: 65, y: 113}
       physicsShape:
-      - - {x: 0, y: 93.70251}
-        - {x: -128, y: -128}
-        - {x: 128, y: -128}
+      - - {x: -64, y: 111}
+        - {x: -128, y: 0}
+        - {x: -64, y: -111}
+        - {x: 64, y: -111}
+        - {x: 128, y: 0}
+        - {x: 64, y: 111}
       tessellationDetail: 0
       bones: []
-      spriteID: 2d009a6b596c7d760800000000000000
-      internalID: 7482667652216324306
+      spriteID: 37fc5a28112c12620800000000000000
+      internalID: -712631045867808456
       vertices: []
       indices: 
       edges: []
       weights: []
-    outline: []
-    customData: 
+    outline:
+    - - {x: -65, y: 113}
+      - {x: -128, y: 4}
+      - {x: -128, y: -4}
+      - {x: -65, y: -113}
+      - {x: 65, y: -113}
+      - {x: 128, y: -4}
+      - {x: 128, y: 4}
+      - {x: 65, y: 113}
     physicsShape:
-    - - {x: -128, y: 128}
-      - {x: -128, y: -128}
-      - {x: 128, y: -128}
-      - {x: 128, y: 128}
+    - - {x: -64, y: 111}
+      - {x: -128, y: 0}
+      - {x: -64, y: -111}
+      - {x: 64, y: -111}
+      - {x: 128, y: 0}
+      - {x: 64, y: 111}
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
@@ -181,11 +179,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    spriteCustomMetadata:
-      entries: []
     nameFileIdTable:
-      Triangle: 7482667652216324306
-  mipmapLimitGroupName: 
+      Hexagon Flat Top: -712631045867808456
   pSDRemoveMatte: 0
   userData: 
   assetBundleName: 

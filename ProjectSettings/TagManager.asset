@@ -9,6 +9,11 @@ TagManager:
   - DoubleJump
   - WallMoveRightBound
   - WallMoveLeftBound
+  - LaserGlasses
+  - LaserBeam
+  - InvisibleBoundry
+  - Collectable
+  - CollectableCoin
   layers:
   - Default
   - TransparentFX

@@ -4,6 +4,7 @@ public class CollectableController : MonoBehaviour
 {
     public float speed;
     Rigidbody2D rb;
+    //CollectableData collectableData = new CollectableData();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,6 +16,7 @@ public class CollectableController : MonoBehaviour
     void Update()
     {
         moveLeft();
+
     }
 
     private void moveLeft()
@@ -27,5 +29,16 @@ public class CollectableController : MonoBehaviour
         float maxSpeed = 8;
 
         speed = Random.Range(minSpeed, maxSpeed);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("InvisibleBoundry"))
+        {
+            Destroy(this.gameObject);
+        }
+        else if(collision.gameObject.CompareTag("LaserBeam"))
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -11,6 +12,10 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
 
     public GameObject doubleJumpHatLocation;
+    public GameObject glassesSlotLocations;
+
+    public float playerDirection;
+    private bool facingRight;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -31,6 +36,18 @@ public class PlayerController : MonoBehaviour
         jump();
     }
 
+    PlayerController()
+    {
+
+    }
+    public bool getPlayerDirection()
+    {
+        return facingRight;
+    }
+    public void settingPlayerDirection()
+    { 
+
+    }
     private void movePlayerLateral()
     {
         // if A/D <-/-> are pressed move the player left or right
@@ -52,11 +69,13 @@ public class PlayerController : MonoBehaviour
         //this is how we will make the player face the direction they are moving
         if(inputHorizontal > 0)
         {
-            transform.eulerAngles = new Vector3(0, 0, 0);
+            transform.eulerAngles = new Vector3(0, 0, 0); //right
+            facingRight = true;
         }
         else if(inputHorizontal < 0)
         {
-            transform.eulerAngles = new Vector3(0, 180, 0);
+            transform.eulerAngles = new Vector3(0, 180, 0);//left
+            facingRight = false;
         }
     }
     private void jump()
@@ -90,12 +109,25 @@ public class PlayerController : MonoBehaviour
             equipDoubleJumpHat(hat);
             maxNumJumps = 2;
         }
+        else if(collision.gameObject.CompareTag("LaserGlasses"))
+        {
+            GameObject glasses = collision.gameObject;
+            equipGlassesSlot(glasses);
+        }
     }
 
     private void equipDoubleJumpHat(GameObject hat)
     {
         hat.transform.position = doubleJumpHatLocation.transform.position;
         hat.gameObject.transform.SetParent(this.gameObject.transform);
+    }
+
+    private void equipGlassesSlot(GameObject glasses)
+    {
+        GameObject parentObj = glasses.transform.parent.gameObject;
+        glasses.transform.position = glassesSlotLocations.transform.position;
+        glasses.gameObject.transform.SetParent(this.gameObject.transform);
+        Destroy(parentObj);
     }
     
 }

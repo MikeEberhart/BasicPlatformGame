@@ -40,19 +40,35 @@ public class PlatformController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("WallMoveLeftBound"))
+        if (collision.gameObject.CompareTag("WallMoveLeftBound"))
         {
             moveLeft = false;
         }
-        else if(collision.gameObject.CompareTag("WallMoveRightBound"))
+        else if (collision.gameObject.CompareTag("WallMoveRightBound"))
         {
-            moveLeft= true;
+            moveLeft = true;
         }
-        else if(collision.gameObject.CompareTag("Player"))
+        else if (collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.transform.SetParent(gameObject.transform);
         }
     }
+
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("WallMoveLeftBound"))
+    //    {
+    //        moveLeft = false;
+    //    }
+    //    else if (collision.gameObject.CompareTag("WallMoveRightBound"))
+    //    {
+    //        moveLeft = true;
+    //    }
+    //    else if (collision.gameObject.CompareTag("Player"))
+    //    {
+    //        collision.gameObject.transform.SetParent(gameObject.transform);
+    //    }
+    //}
 
     private void OnCollisionExit2D(Collision2D collision)
     {
