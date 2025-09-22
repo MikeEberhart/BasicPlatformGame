@@ -904,7 +904,7 @@ MonoBehaviour:
   yellowCollectable: {fileID: 7984359681483427636, guid: 45d7299a2b3df9943bb50762e1dd9a04, type: 3}
   redCollectable: {fileID: 7689046344991904505, guid: 1e5f3047a8d03fd4f9a969bf584fb574, type: 3}
   blueCollectable: {fileID: 7882097526776998366, guid: 30315868a59f28c45ac1e6dde4f207ca, type: 3}
-  delay: 3
+  delay: 2
 --- !u!4 &1139644951
 Transform:
   m_ObjectHideFlags: 0

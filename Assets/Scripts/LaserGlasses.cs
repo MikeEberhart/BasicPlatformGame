@@ -11,10 +11,10 @@ public class LaserGlasses : MonoBehaviour
     public GameObject player;
 
     private GameObject beamToSpawn;
-    private float fireRate;
+    //private float fireRate;
     private float time;
     public float delay;
-    private float damage;
+    //private float damage;
     private bool isWearingGlasses;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -26,11 +26,12 @@ public class LaserGlasses : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        shootGlasses();
         time += Time.deltaTime;
         if (time >= delay)
         {
-            shootGlasses();
+            //used with KeyDown in the shootGlasses function
+            //shootGlasses();
             //reset time so the delay is set for the next object to spawn
             time = 0f;
         }
@@ -46,7 +47,7 @@ public class LaserGlasses : MonoBehaviour
     }
     private void shootGlasses()
     {
-        if ((Input.GetKey(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Mouse0) && isWearingGlasses))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && isWearingGlasses)
         {
             Debug.Log("Shooting Glasses");
             //beamToSpawn.transform.parent = this.gameObject.transform;

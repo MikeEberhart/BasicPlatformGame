@@ -31,6 +31,7 @@ public class LaserBeamController : MonoBehaviour
     void Update()
     {
         //directionOfFire();
+        //used to destroy the laser beam after a set time
         time += Time.deltaTime;
         if (time >= delay)
         {
