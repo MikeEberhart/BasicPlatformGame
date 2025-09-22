@@ -14,6 +14,8 @@ TagManager:
   - InvisibleBoundry
   - Collectable
   - CollectableCoin
+  - OB
+  - obBottom
   layers:
   - Default
   - TransparentFX

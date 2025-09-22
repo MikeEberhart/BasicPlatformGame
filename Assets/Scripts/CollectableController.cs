@@ -32,7 +32,7 @@ public class CollectableController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("InvisibleBoundry"))
+        if(collision.gameObject.CompareTag("OB"))
         {
             Destroy(this.gameObject);
         }
