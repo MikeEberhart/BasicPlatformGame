@@ -17,6 +17,11 @@ public class PlayerController : MonoBehaviour
 
     public float playerDirection;
     private bool facingRight;
+
+    private static int playerScore;
+    public GameObject scoreManager;
+    private ScoreManagerGUI scScript;
+    private int highScore;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -25,8 +30,11 @@ public class PlayerController : MonoBehaviour
         // I can only get this component because the rigidbody 2d is attached to 
         // this script is also attached to the player
         rb = GetComponent<Rigidbody2D>();
+        scScript = scoreManager.GetComponent<ScoreManagerGUI>();
         maxNumJumps = 1;
         numJumps = 1;
+        playerScore = 0;
+        highScore = 0;
     }
 
     // Update is called once per frame
@@ -46,7 +54,7 @@ public class PlayerController : MonoBehaviour
         return facingRight;
     }
     public void settingPlayerDirection()
-    { 
+    {
 
     }
     private void movePlayerLateral()
@@ -68,12 +76,12 @@ public class PlayerController : MonoBehaviour
     private void flipPlayerSprite(float inputHorizontal)
     {
         //this is how we will make the player face the direction they are moving
-        if(inputHorizontal > 0)
+        if (inputHorizontal > 0)
         {
             transform.eulerAngles = new Vector3(0, 0, 0); //right
             facingRight = true;
         }
-        else if(inputHorizontal < 0)
+        else if (inputHorizontal < 0)
         {
             transform.eulerAngles = new Vector3(0, 180, 0);//left
             facingRight = false;
@@ -93,11 +101,11 @@ public class PlayerController : MonoBehaviour
     {
         //collision will contain information about the object that the player collided with
         //Debug.Log(collision.gameObject);
-        if(collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground"))
         {
             numJumps = 1;
         }
-        else if(collision.gameObject.CompareTag("obBottom"))
+        else if (collision.gameObject.CompareTag("obBottom"))
         {
             //game over
             SceneManager.LoadScene("SampleScene");
@@ -108,7 +116,7 @@ public class PlayerController : MonoBehaviour
     //Triggers
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("DoubleJump"))
+        if (collision.gameObject.CompareTag("DoubleJump"))
         {
             //string fromPinkCollectable = collision.gameObject.GetComponent<PinkTriangleCollectable>().getTestString();
             //Debug.Log(fromPinkCollectable);
@@ -116,10 +124,23 @@ public class PlayerController : MonoBehaviour
             equipDoubleJumpHat(hat);
             maxNumJumps = 2;
         }
-        else if(collision.gameObject.CompareTag("LaserGlasses"))
+        else if (collision.gameObject.CompareTag("LaserGlasses"))
         {
             GameObject glasses = collision.gameObject;
             equipGlassesSlot(glasses);
+        }
+        else if (collision.gameObject.CompareTag("Collectable"))
+        {
+            //gettting reference to the value of the collectable
+            GameObject collectable = collision.gameObject;
+            CollectableData cd = collectable.GetComponent<CollectableData>();
+            //getting value of collectable
+            int valueOfCollectable = cd.getCollectableValue();
+            //destory the collectable
+            changePlayerScore(valueOfCollectable);
+            cd.destroyCollectable();
+            //changing the gui to match the new score
+            scScript.setGUICurScore();
         }
     }
 
@@ -136,5 +157,26 @@ public class PlayerController : MonoBehaviour
         glasses.gameObject.transform.SetParent(this.gameObject.transform);
         Destroy(parentObj);
     }
-    
+
+    public int getPlayerScore()
+    {
+        return playerScore;
+    }
+    public void setPlayerScore(int s)
+    {
+        playerScore = s;
+    }
+    public void changePlayerScore(int value)
+    {
+        playerScore += value;
+        Debug.Log("Score: " + playerScore);
+    }
+    public int getPlayerHighScore()
+    {
+        return highScore;
+    }
+    public void setPlayerHighScore(int value)
+    {
+        highScore = value;
+    }
 }
